@@ -41,3 +41,58 @@ Designed to be:
 
 ```bash
 pip install sounddevice numpy
+
+
+
+
+
+
+# STT → TTS Assistive Voice Proxy
+
+This project is a **simple speech-to-text → text-to-speech (STT → TTS)** loop in Python, designed as a prototype “voice proxy” for people with weak or impaired speech (e.g. vocal cord paralysis).
+
+The idea:
+
+1. The user speaks into a microphone.
+2. A speech recognition model (Whisper) converts the audio to text.
+3. A TTS engine speaks the text back with a **clear, loud synthetic voice**.
+
+It’s not real-time syllable-by-syllable, but works well for **short phrases** and is much more intelligible than a very weak, breathy voice.
+
+> ⚠️ This is an experimental assistive tool, not a medical device.
+
+---
+
+## Features
+
+- 🎙 **Press-to-talk recording** from the microphone
+- 🧠 **Whisper-based speech recognition** (local model)
+- 🗣 **On-device text-to-speech** via `pyttsx3`
+- 🔁 Simple loop:
+  - Press Enter → record
+  - Whisper transcribes
+  - TTS speaks the recognized text
+- 🧩 Easy to customize:
+  - Recording length
+  - Whisper model size (`tiny`, `base`, `small`…)
+  - TTS voice and speaking rate
+
+---
+
+## Requirements
+
+### System
+
+- Python **3.9+**
+- A working microphone
+- Speakers or headphones
+- `ffmpeg` installed and on your PATH (required by Whisper)
+
+Examples:
+
+- **Debian/Ubuntu:**
+  ```bash
+  sudo apt install ffmpeg
+
+
+pip install sounddevice numpy openai-whisper pyttsx3
