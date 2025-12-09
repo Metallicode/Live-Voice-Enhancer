@@ -41,7 +41,7 @@ Designed to be:
 
 ```bash
 pip install sounddevice numpy
-
+```
 
 
 
@@ -94,5 +94,6 @@ Examples:
   ```bash
   sudo apt install ffmpeg
 
-
+```
 pip install sounddevice numpy openai-whisper pyttsx3
+```
