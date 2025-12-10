@@ -108,6 +108,8 @@ This project provides a **simple speech-to-text pipeline** using
 [`faster-whisper`](https://github.com/SYSTRAN/faster-whisper) and a **Hebrew-optimized Whisper model**:
 
 > **ivrit-ai/whisper-large-v3-ct2**
+>
+> https://huggingface.co/ivrit-ai/models
 
 It is intended as a foundation for **assistive speech applications**, where spoken Hebrew is converted into clear, machine-readable text (and later TTS).
 
