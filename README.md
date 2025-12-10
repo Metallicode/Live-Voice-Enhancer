@@ -97,3 +97,43 @@ Examples:
 ```
 pip install sounddevice numpy openai-whisper pyttsx3
 ```
+
+
+
+
+
+# Hebrew Speech-to-Text (STT) with faster-whisper
+
+This project provides a **simple speech-to-text pipeline** using  
+[`faster-whisper`](https://github.com/SYSTRAN/faster-whisper) and a **Hebrew-optimized Whisper model**:
+
+> **ivrit-ai/whisper-large-v3-ct2**
+
+It is intended as a foundation for **assistive speech applications**, where spoken Hebrew is converted into clear, machine-readable text (and later TTS).
+
+---
+
+## Requirements
+
+### System
+- Ubuntu 20.04+
+- A working microphone
+- Python **3.11** (recommended)
+- Internet connection (model downloads once)
+
+### Python packages
+- `faster-whisper`
+- `soundfile`
+- `numpy`
+- `sounddevice` (for mic input, optional)
+
+---
+
+## Installation
+
+### 1. Create and activate a Python 3.11 virtual environment
+
+```bash
+python3.11 -m venv venv311
+source venv311/bin/activate
+
