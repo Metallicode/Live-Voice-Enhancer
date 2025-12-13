@@ -74,7 +74,7 @@ ELEVENLABS_VOICE_ID="your_voice_id_here"
 
 4. running:
 python gui_stt_tts.py
-
+```
 
 
 # Real-Time Voice Enhancer & Vocoder (Assistive Speech DSP)
