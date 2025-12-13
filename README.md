@@ -1,3 +1,82 @@
+# Assistive Speech: Record → Transcribe → Speak (ElevenLabs)
+
+This project is a **small desktop assistive communication tool**.
+
+It allows a user to:
+1. Press a button to **record 5 seconds of speech**
+2. Send the recording to **ElevenLabs Speech-to-Text (STT)**
+3. Display the **transcribed text on screen** (Hebrew supported)
+4. Optionally generate a **clear synthetic voice** from that text using **ElevenLabs Text-to-Speech (TTS)**
+5. Automatically **play the generated voice**
+
+The tool is designed for **people with weak or impaired speech**, where speech recognition works better than direct voice intelligibility.
+
+---
+
+## Features
+
+- 🎙 Button-based recording (no keyboard needed)
+- 🧠 ElevenLabs **Scribe** STT (`scribe_v1`)
+- 🗣 ElevenLabs TTS (`eleven_v3` or `eleven_multilingual_v2`)
+- 🇮🇱 Hebrew language support (right-aligned display)
+- ▶ Automatic playback of generated speech
+- 💾 Audio files saved locally for review
+
+---
+
+## Important Python Version Notice (READ THIS)
+
+⚠️ **This GUI uses Tkinter, which on Ubuntu 20.04 only works with Python 3.8.**
+
+- Ubuntu 20.04 ships Tkinter bindings **only for Python 3.8**
+- Newer Python versions (3.10 / 3.11) **cannot use Tkinter** on this OS
+- This is a system limitation, not a bug in the script
+
+✅ **Use Python 3.8 for this GUI application**
+
+You may still use Python 3.11 for non-GUI scripts (e.g. Whisper experiments).
+
+---
+
+## Requirements
+
+### System
+- Ubuntu 20.04+
+- Microphone
+- Speakers or headphones
+- `ffmpeg` (for MP3 playback)
+
+Install ffmpeg:
+
+```bash
+sudo apt install ffmpeg
+
+
+##Installation:
+
+1. Create a Python 3.8 virtual environment
+
+python3 -m venv venv
+source venv/bin/activate
+
+
+
+2. Install dependencies
+
+pip install --upgrade pip
+pip install sounddevice numpy elevenlabs
+
+
+3. Set environment variables (using .env)
+ELEVENLABS_API_KEY="your_api_key_here"
+ELEVENLABS_VOICE_ID="your_voice_id_here"
+
+
+4. running:
+python gui_stt_tts.py
+
+
+
 # Real-Time Voice Enhancer & Vocoder (Assistive Speech DSP)
 
 This project is a **real-time Python audio processing pipeline** designed to help improve the intelligibility of weak or impaired speech (e.g. vocal cord paralysis) in noisy or non-ideal environments.
