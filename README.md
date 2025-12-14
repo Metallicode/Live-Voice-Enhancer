@@ -1,3 +1,186 @@
+
+# ElevenLabs Realtime Speech-to-Text (Experimental)
+
+This project is a **Python experiment using ElevenLabs’ Realtime Speech-to-Text API**.
+
+It streams microphone audio to ElevenLabs in real time and receives:
+- **Partial transcripts** (live feedback)
+- **Committed transcripts** (final segments)
+
+The goal is to evaluate realtime STT as a building block for **assistive communication tools**, especially where batch transcription introduces too much delay.
+
+---
+
+## Current Status
+
+✅ Connection and audio streaming work  
+✅ Realtime session is established  
+⚠️ Realtime transcription is **experimental** and still unstable  
+⚠️ Connection may close unexpectedly depending on audio activity  
+
+This matches the current maturity of the ElevenLabs realtime STT feature.
+
+---
+
+## Important Python Version Requirement
+
+⚠️ **Python 3.11 is required**
+
+The ElevenLabs realtime SDK depends on newer versions of the `websockets` library that **do not work on Python 3.8**.
+
+If you try to run this on Python 3.8, you will encounter errors like:
+
+```
+
+TypeError: create_connection() got an unexpected keyword argument 'additional_headers'
+
+````
+
+This is a hard dependency issue, not a bug in your code.
+
+✅ **Use Python 3.11 or newer**
+
+---
+
+## Requirements
+
+### System
+- Linux (tested on Ubuntu 20.04)
+- Microphone
+- Internet connection
+
+### Python
+- Python **3.11**
+- Packages:
+  - `elevenlabs`
+  - `websockets`
+  - `sounddevice`
+  - `numpy`
+
+---
+
+## Installation
+
+### 1. Create a Python 3.11 virtual environment
+
+```bash
+python3.11 -m venv venv_rt
+source venv_rt/bin/activate
+````
+
+Verify:
+
+```bash
+python --version
+# Python 3.11.x
+```
+
+---
+
+### 2. Install dependencies
+
+```bash
+pip install --upgrade pip
+pip install elevenlabs websockets sounddevice numpy
+```
+
+---
+
+### 3. Set your API key
+
+```bash
+export ELEVENLABS_API_KEY="your_api_key_here"
+```
+
+(Add this to `~/.bashrc` if you want it permanent.)
+
+---
+
+## Running the Realtime STT Test
+
+```bash
+python eleven_realtime_stt_mic.py
+```
+
+What to expect:
+
+* The script connects to ElevenLabs Realtime STT
+* Microphone audio is streamed continuously
+* Partial transcripts may appear live
+* Committed transcripts appear after voice activity is detected
+* Stop with `Ctrl+C`
+
+---
+
+## Configuration (in code)
+
+Key parameters:
+
+```python
+MODEL_ID = "scribe_v2_realtime"
+LANGUAGE_CODE = "he"          # or "en", "heb", or auto-detect
+AUDIO_FORMAT = AudioFormat.PCM_16000
+SAMPLE_RATE = 16000
+COMMIT_STRATEGY = CommitStrategy.VAD
+```
+
+* **VAD commit strategy** automatically finalizes segments when silence is detected
+* Manual commit is also supported but not required for basic tests
+
+---
+
+## Known Limitations
+
+* Realtime STT may disconnect if:
+
+  * Not enough audio activity is detected
+  * Audio chunks are malformed
+  * The session times out
+* Transcription may not begin until ~2 seconds of audio have been received
+* Feature behavior may change as ElevenLabs updates the API
+* This is **not a stable or production-ready feature yet**
+
+---
+
+## Intended Use
+
+This experiment is intended for:
+
+* Research
+* Prototyping assistive speech tools
+* Evaluating latency vs batch transcription
+* Comparing realtime STT with Whisper-style pipelines
+
+It is **not** a medical or accessibility-certified solution.
+
+---
+
+## Next Steps / Ideas
+
+* Add automatic reconnection with backoff
+* Log partial vs committed latency
+* Pipe realtime text into a TTS engine
+* Compare realtime vs batch accuracy for impaired speech
+* Integrate into a separate UI or service layer
+
+---
+
+## Disclaimer
+
+This project is experimental.
+
+No guarantees are made regarding accuracy, availability, or suitability for clinical or assistive use.
+
+```
+
+
+
+
+
+
+
+
+
 # Assistive Speech: Record → Transcribe → Speak (ElevenLabs)
 
 This project is a **small desktop assistive communication tool**.
