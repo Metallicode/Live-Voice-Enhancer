@@ -171,13 +171,6 @@ This project is experimental.
 
 No guarantees are made regarding accuracy, availability, or suitability for clinical or assistive use.
 
-```
-
-
-
-
-
-
 
 
 
