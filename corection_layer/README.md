@@ -301,22 +301,3 @@ This toolkit is:
 
 It is intended for **research and prototyping** in assistive speech technology.
 
----
-
-If you want next:
-
-* I can help tune this for *your specific speaker*
-* Add confidence explanations (“why this was chosen”)
-* Package this as a reusable Python module
-* Integrate it cleanly into your STT → TTS pipeline
-
-```
-
----
-
-If you want, I can also:
-- slim this down into a **one-page quickstart**
-- add **diagrams of the correction pipeline**
-- prepare a **demo corpus + expected outputs** for testing
-```
-
