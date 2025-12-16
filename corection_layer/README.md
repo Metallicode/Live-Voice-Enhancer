@@ -1,10 +1,4 @@
-Here is a **clean, complete README** that documents **all three scripts together as a small toolkit**, with clear purpose, directory structure, and usage examples.
 
-You can drop this directly into `README.md`.
-
----
-
-```markdown
 # Hebrew STT Post-Correction Toolkit (Wordlist + Bigrams + Corrector)
 
 This repository contains a **lightweight, language-aware post-processing toolkit** for improving **Hebrew speech-to-text (STT)** output, especially for:
